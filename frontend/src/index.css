@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg-main: #060911;
+  --bg-surface: #0c1220;
+  --bg-surface-elevated: #131d31;
+  --bg-glass: rgba(12, 18, 32, 0.75);
+  
+  --border-dim: rgba(255, 255, 255, 0.08);
+  --border-bright: rgba(56, 189, 248, 0.3);
+  
+  --cyan-accent: #06b6d4;
+  --blue-accent: #3b82f6;
+  --purple-accent: #8b5cf6;
+  
+  --sev-critical: #f43f5e;
+  --sev-critical-bg: rgba(244, 63, 94, 0.15);
+  --sev-high: #f97316;
+  --sev-high-bg: rgba(249, 115, 22, 0.15);
+  --sev-medium: #eab308;
+  --sev-medium-bg: rgba(234, 179, 8, 0.15);
+  --sev-low: #10b981;
+  --sev-low-bg: rgba(16, 185, 129, 0.15);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Custom Cyber Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-accent);
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-dim);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Glowing Accent Border */
+.cyber-glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.4) !important;
+}
+.cyber-glow-critical {
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.25);
+  border-color: rgba(244, 63, 94, 0.5) !important;
+}
+
+/* Typography Utilities */
+.heading-font {
+  font-family: var(--font-heading);
+}
+
+.mono-font {
+  font-family: var(--font-mono);
+}
+
+/* Pulsing Badge Animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-live {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Severities */
+.badge-critical {
+  background: var(--sev-critical-bg);
+  color: var(--sev-critical);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+.badge-high {
+  background: var(--sev-high-bg);
+  color: var(--sev-high);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+.badge-medium {
+  background: var(--sev-medium-bg);
+  color: var(--sev-medium);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+.badge-low {
+  background: var(--sev-low-bg);
+  color: var(--sev-low);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Buttons */
+.btn-cyber-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.btn-cyber-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.4);
+}
+
+.btn-cyber-danger {
+  background: linear-gradient(135deg, #e11d48 0%, #f43f5e 100%);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.btn-cyber-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.4);
+}
+
+.btn-cyber-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-dim);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.btn-cyber-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
